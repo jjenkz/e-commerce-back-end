@@ -45,7 +45,7 @@ router.post("/", async (req, res) => {
     if (req.body.tagIds.length) {
       const productTagIdArr = req.body.tagIds.map((tag_id) => {
         return {
-          product_id: product.id,
+          product_id: productData.id,
           tag_id,
         };
       });
@@ -107,7 +107,7 @@ router.delete("/:id", async (req, res) => {
     });
 
     if (!productData) {
-      res.status(404).json({ message: "No product found with this id!" });
+      res.status(404).json({ message: "No product found with this id" });
       return;
     }
 
